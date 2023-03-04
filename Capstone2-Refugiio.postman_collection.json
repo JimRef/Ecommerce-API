@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "e22637ab-10cb-4b41-b25d-f8d2f6999d62",
+		"name": "Capstone2-Refugiio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25584850"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"admin\",\r\n    \"lastName\": \"admin\",\r\n    \"email\": \"admin@email.com\",\r\n    \"password\": \"admin\",\r\n    \"mobileNo\": \"09123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jimmy@email.com\",\r\n    \"password\": \"jim\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWFkMDcxZGFlYmY2ZDI0NmU2M2QiLCJlbWFpbCI6ImppbW15QGVtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NzU3MzI5OTV9.axenr3nUnIyDlkvoivbzBhU3Vpbwi1XpnffPC1iMQFY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/user/details",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set User as Admin (Admin Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWIxMjcxZGFlYmY2ZDI0NmU2NDEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTc1NzQ1OX0.Zbafud6w8OwVD9EaE6vtzh_GTwcucS-XsgcpTQC_T5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isAdmin\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/user/63e19ad071daebf6d246e63d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"63e19ad071daebf6d246e63d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product(Admin Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWIxMjcxZGFlYmY2ZDI0NmU2NDEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTczNjMyOX0.mAO6UxtlU7kTFL4A0QxvEIvwk6Z1_HB6NnmJWqyL9j0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Monitor\",\r\n    \"description\": \"24inch, 75hz\",\r\n    \"price\": 6000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/product/addproduct",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"addproduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Active Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/product/allactiveproduct",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"allactiveproduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/product/singleproduct/63e1b7247ca579cc27f7623d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"singleproduct",
+								"63e1b7247ca579cc27f7623d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product (Admin Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWIxMjcxZGFlYmY2ZDI0NmU2NDEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTczODY2NX0.qDLhAy2ud6y-TO9jRu6Mp0s5EjdI3z9BMKeGmv3h8ug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Samsung Evo HDD\",\r\n    \"description\": \"1TB, SATA III,3.94 x 2.76 x 0.27\",\r\n    \"price\": 2500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/product/update/63e1b7247ca579cc27f7623d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"update",
+								"63e1b7247ca579cc27f7623d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archive a Product (Admin Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWIxMjcxZGFlYmY2ZDI0NmU2NDEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTczODY2NX0.qDLhAy2ud6y-TO9jRu6Mp0s5EjdI3z9BMKeGmv3h8ug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isActive\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/product/archive/63e1b7247ca579cc27f7623d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"archive",
+								"63e1b7247ca579cc27f7623d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWFkMDcxZGFlYmY2ZDI0NmU2M2QiLCJlbWFpbCI6ImppbW15QGVtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NzU3NDY0MjN9.sn5iNMOkAdspjHIo29e2xz_qyFcJ3K_URI6qPW6AnWs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/order/63e1b7247ca579cc27f7623d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"order",
+								"63e1b7247ca579cc27f7623d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Order of Authenticated User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWFkMDcxZGFlYmY2ZDI0NmU2M2QiLCJlbWFpbCI6ImppbW15QGVtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NzU4MTc3MzJ9.Xq4RrYh-onz8PTEVt3EHX_q58oRpRHeeO31p8L5KRbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/order/retrieveOrder",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"order",
+								"retrieveOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All Orders (Admin Only)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/order/retrieveallorder",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"order",
+								"retrieveallorder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "userjimmy",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWFkMDcxZGFlYmY2ZDI0NmU2M2QiLCJlbWFpbCI6ImppbW15QGVtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NzU3Mjk4MTN9.Q_CMwe6AV7ankkqgd20eMvQiYXiYeU88V7x7kS-csyQ"
+		},
+		{
+			"key": "admin",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxOWIxMjcxZGFlYmY2ZDI0NmU2NDEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NzU3Mjk4OTJ9.owtz2KxInl-kXT0_0DfB6x2OfhxGYSkb3jXvamxN65w"
+		}
+	]
+}
